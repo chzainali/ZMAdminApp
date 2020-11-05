@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:id="@+id/mMain"
+    android:orientation="vertical">
+
+   <ImageView
+       android:id="@+id/mImageView"
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       android:scaleType="fitXY"/>
+    <TextView
+        android:id="@+id/mNameTV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/mFPriceET"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/mTPriceET"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <Button
+        android:id="@+id/mDelBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Del"/>
+
+    
+</LinearLayout>
