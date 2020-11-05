@@ -1,9 +1,19 @@
 package app.techland.zmadminapp.Models;
 
 public class SmartPhoneProductListModel {
-    String name,falseprice,trueprice,img;
+    String name;
+    String falseprice;
+    String trueprice;
 
     public SmartPhoneProductListModel() {
+    }
+
+    public SmartPhoneProductListModel(String name, String falseprice, String trueprice, String img, String id) {
+        this.name = name;
+        this.falseprice = falseprice;
+        this.trueprice = trueprice;
+        this.img = img;
+        this.id = id;
     }
 
     public String getName() {
@@ -30,7 +40,7 @@ public class SmartPhoneProductListModel {
         this.trueprice = trueprice;
     }
 
-    public  String getImg() {
+    public String getImg() {
         return img;
     }
 
@@ -38,10 +48,16 @@ public class SmartPhoneProductListModel {
         this.img = img;
     }
 
-    public SmartPhoneProductListModel(String name, String falseprice, String trueprice, String img) {
-        this.name = name;
-        this.falseprice = falseprice;
-        this.trueprice = trueprice;
-        this.img = img;
+    public String getId() {
+        return id;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    String img;
+    String id;
+
+
 }

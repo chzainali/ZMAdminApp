@@ -32,7 +32,7 @@ public class AddSmartPhoneCompanyList extends AppCompatActivity {
         mCompanyListET = findViewById(R.id.mCompanyListET);
         mCompanyListBtn = findViewById(R.id.mCompanyListBtn);
         mProgressBar = findViewById(R.id.mProgressBar);
-        DbCompListRef = FirebaseDatabase.getInstance().getReference("SmartPhoneCompanyList");
+        DbCompListRef = FirebaseDatabase.getInstance().getReference("BrandName");
 
         mCompanyListBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -40,7 +40,7 @@ public class SmartPhone extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(SmartPhone.this) ;
         progressDialog.setMessage("Going Good(Loading)...");
-        mDbRf = FirebaseDatabase.getInstance().getReference("SmartPhoneCompanyList");
+        mDbRf = FirebaseDatabase.getInstance().getReference("BrandName");
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
         mRecView.setLayoutManager(layoutManager);
         progressDialog.show();
@@ -69,7 +69,10 @@ public class SmartPhone extends AppCompatActivity {
             viewHolder.mTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(),SmartPhoneProductList.class));
+                    String BrandName=model.getCompanyname();
+                    Intent intent=new Intent(getApplicationContext(),SmartPhoneProductList.class);
+                    intent.putExtra("brand_name", BrandName);
+                    startActivity(intent);
                 }
             });
         }

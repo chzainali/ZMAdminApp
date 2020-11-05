@@ -78,7 +78,7 @@ public class AddSmartPhoneProductDetail extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent, "Complete action using"), RC_NAV_PHOTO_PICKER);
             }
         });
-        DBVFRef = FirebaseDatabase.getInstance().getReference("SmartPhoneVF");
+        DBVFRef = FirebaseDatabase.getInstance().getReference("SmartPhoneVF").child("-MLNvOG0LIoSbVhiQfpC");
         mVFStorageRef = FirebaseStorage.getInstance().getReference("SmartPhoneVFPictures");
         mSubmitVFBtn.setOnClickListener(new View.OnClickListener() {
             @Override
