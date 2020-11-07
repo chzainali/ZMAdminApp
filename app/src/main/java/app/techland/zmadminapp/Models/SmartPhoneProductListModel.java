@@ -5,6 +5,7 @@ public class SmartPhoneProductListModel {
     String falseprice;
     String trueprice;
 
+
     public SmartPhoneProductListModel() {
     }
 

@@ -63,9 +63,8 @@ public class SmartPhoneProductList extends AppCompatActivity implements SmartPho
         setContentView(R.layout.activity_smart_phone_product_list);
         mRecView = findViewById(R.id.mRecView);
         dbRef = FirebaseDatabase.getInstance().getReference("SmartPhoneVF");
-        storageReference = FirebaseStorage.getInstance().getReference("SmartPhoneVFPictures");
         dbRef = FirebaseDatabase.getInstance().getReference("SmartPhoneVF");
-        storageReference = FirebaseStorage.getInstance().getReference("SmartPhoneVFPictures");
+        storageReference = FirebaseStorage.getInstance().getReference("PhonePicture");
         iFirebaseLoadDone = this;
 
 
@@ -94,7 +93,7 @@ public class SmartPhoneProductList extends AppCompatActivity implements SmartPho
                 modelViewHolder.mMain.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        openWallDialog(smartPhoneProductListModel.getTrueprice(), smartPhoneProductListModel.getFalseprice());
+                        openWallDialog(smartPhoneProductListModel.getTrueprice(), smartPhoneProductListModel.getFalseprice(), smartPhoneProductListModel.getId());
 //                        startActivity(new Intent(getApplicationContext(), SmartPhoneProductDetail.class));
                     }
                 });
@@ -136,13 +135,13 @@ public class SmartPhoneProductList extends AppCompatActivity implements SmartPho
         }
     }
 
-    private void openWallDialog(String Fprice, String Tprice) {
+    private void openWallDialog(String Fprice, String Tprice, String id) {
         dialog = new Dialog(SmartPhoneProductList.this, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
         dialog.setContentView(R.layout.mobile_detail_dialog_layout);
         viewPager = dialog.findViewById(R.id.view_pager);
         indicator =  dialog.findViewById(R.id.indicator);
 
-        loadImages();
+        loadImages(id);
         //for transformation when image slided
         viewPager.setPageTransformer(true, new DepthPageTransformer());
         viewPager.setCurrentItem(0);
@@ -157,9 +156,9 @@ public class SmartPhoneProductList extends AppCompatActivity implements SmartPho
         dialog.show();
     }
 
-    private void loadImages() {
+    private void loadImages( String productid) {
 
-        dbRef.child("-MLO66vRVUOPYamwwRiM").addListenerForSingleValueEvent(new ValueEventListener() {
+        dbRef.child(productid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot bikeSnapShot : dataSnapshot.getChildren())
